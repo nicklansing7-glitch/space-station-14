@@ -1,0 +1,84 @@
+# SS14 Project: approved grey carbine, unlimited green laser bolts.
+# Additive content only. No maps, armor, vanilla guns, or engine files changed.
+# Unlimited means BOTH Count and Capacity remain null, not a giant battery.
+
+- type: entity
+  parent: [BaseItem, BaseGunWieldable]
+  id: WeaponLaserCarbineExpeditionMk1
+  name: expedition laser carbine
+  description: A light-grey expedition carbine with a self-sustaining energy feed. Fires green laser bolts without magazines or recharging. The lower housing is fixed, not a removable magazine.
+  components:
+  - type: Sprite
+    sprite: Exploration/Weapons/expedition_laser_carbine.rsi
+    layers:
+    - state: icon
+  - type: Icon
+    sprite: Exploration/Weapons/expedition_laser_carbine.rsi
+    state: icon
+  - type: Item
+    size: Large
+    sprite: Exploration/Weapons/expedition_laser_carbine.rsi
+  - type: Clothing
+    sprite: Exploration/Weapons/expedition_laser_carbine.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Gun
+    fireRate: 4
+    projectileSpeed: 25
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+  - type: BasicEntityAmmoProvider
+    proto: BulletLaserExpeditionGreen
+    capacity: null
+    count: null
+  - type: Appearance
+  - type: StaticPrice
+    price: 500
+  - type: Tag
+    tags:
+    - LaserWeapon
+
+- type: entity
+  parent: BulletLaser
+  id: BulletLaserExpeditionGreen
+  name: green laser bolt
+  categories: [HideSpawnMenu]
+  components:
+  - type: Sprite
+    sprite: Exploration/Weapons/expedition_green_bolt.rsi
+    layers:
+    - state: bolt
+      shader: unshaded
+  - type: PointLight
+    enabled: true
+    color: "#32ff58"
+    radius: 1.5
+    energy: 0.8
+  - type: Projectile
+    impactEffect: BulletImpactEffectExpeditionGreen
+    damage:
+      types:
+        Heat: 13
+  - type: TimedDespawn
+    lifetime: 2
+
+- type: entity
+  parent: BulletImpactEffectDisabler
+  id: BulletImpactEffectExpeditionGreen
+  categories: [HideSpawnMenu]
+  components:
+  - type: Sprite
+    drawdepth: Effects
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: Exploration/Weapons/expedition_green_bolt.rsi
+      state: impact
+  - type: TimedDespawn
+    lifetime: 0.2
