@@ -1,0 +1,104 @@
+# Expedition Mk.I. Additive prototypes; no vanilla items or maps are replaced.
+# Combat armor, NOT vacuum protection.
+# The kit fills at MapInit. Test it in initialized Sandbox, not the mapping map.
+
+- type: entity
+  parent: ClothingHeadHelmetArmoredBase
+  id: ClothingHeadHelmetExpeditionDropMk1
+  name: expedition drop helmet Mk.I
+  description: An angular charcoal helmet with a recessed amber visor. Combat protection only; not vacuum-rated.
+  components:
+  - type: Sprite
+    sprite: Exploration/Clothing/expedition_mk1_helmet.rsi
+    state: icon
+  - type: Icon
+    sprite: Exploration/Clothing/expedition_mk1_helmet.rsi
+    state: icon
+  - type: Item
+    sprite: Exploration/Clothing/expedition_mk1_helmet.rsi
+  - type: Clothing
+    sprite: Exploration/Clothing/expedition_mk1_helmet.rsi
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
+      FacialHair: HEAD
+      HeadTop: HEAD
+      HeadSide: HEAD
+- type: entity
+  parent: ClothingOuterArmorBase
+  id: ClothingOuterArmorExpeditionDropMk1
+  name: expedition drop armor Mk.I
+  description: Segmented gunmetal armor with articulated shoulders, forearm guards, and knee plates. Not a spacesuit.
+  components:
+  - type: Sprite
+    sprite: Exploration/Clothing/expedition_mk1_armor.rsi
+    state: icon
+  - type: Icon
+    sprite: Exploration/Clothing/expedition_mk1_armor.rsi
+    state: icon
+  - type: Item
+    sprite: Exploration/Clothing/expedition_mk1_armor.rsi
+  - type: Clothing
+    sprite: Exploration/Clothing/expedition_mk1_armor.rsi
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformExpeditionCombat
+  name: expedition combat uniform
+  description: A matte-black field uniform with flexible joints, worn beneath expedition drop armor.
+  components:
+  - type: Sprite
+    sprite: Exploration/Clothing/expedition_mk1_uniform.rsi
+    state: icon
+  - type: Icon
+    sprite: Exploration/Clothing/expedition_mk1_uniform.rsi
+    state: icon
+  - type: Item
+    sprite: Exploration/Clothing/expedition_mk1_uniform.rsi
+  - type: Clothing
+    sprite: Exploration/Clothing/expedition_mk1_uniform.rsi
+- type: entity
+  parent: ClothingHandsGlovesSyntheticBase
+  id: ClothingHandsGlovesExpeditionDropMk1
+  name: expedition drop gloves Mk.I
+  description: Close-fitting tactical gloves with compact knuckle guards. Not electrically insulated.
+  components:
+  - type: Sprite
+    sprite: Exploration/Clothing/expedition_mk1_gloves.rsi
+    state: icon
+  - type: Icon
+    sprite: Exploration/Clothing/expedition_mk1_gloves.rsi
+    state: icon
+  - type: Item
+    sprite: Exploration/Clothing/expedition_mk1_gloves.rsi
+  - type: Clothing
+    sprite: Exploration/Clothing/expedition_mk1_gloves.rsi
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingShoesBootsExpeditionDropMk1
+  name: expedition drop boots Mk.I
+  description: Reinforced expedition boots with traction soles. No magnetic adhesion or vacuum seal.
+  components:
+  - type: Sprite
+    sprite: Exploration/Clothing/expedition_mk1_boots.rsi
+    state: icon
+  - type: Icon
+    sprite: Exploration/Clothing/expedition_mk1_boots.rsi
+    state: icon
+  - type: Item
+    sprite: Exploration/Clothing/expedition_mk1_boots.rsi
+  - type: Clothing
+    sprite: Exploration/Clothing/expedition_mk1_boots.rsi
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateExpeditionDropMk1
+  name: expedition drop armor kit Mk.I
+  description: 'One complete expedition drop armor outfit: helmet, armor, uniform, gloves, and boots.'
+  components:
+  - type: ContainerFill
+    containers:
+      entity_storage:
+      - ClothingHeadHelmetExpeditionDropMk1
+      - ClothingOuterArmorExpeditionDropMk1
+      - ClothingUniformExpeditionCombat
+      - ClothingHandsGlovesExpeditionDropMk1
+      - ClothingShoesBootsExpeditionDropMk1
